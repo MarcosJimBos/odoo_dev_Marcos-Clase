@@ -6,4 +6,4 @@ class HolaMundo(models.Model):
     _name = 'hola.mundo.v2'
     _description = 'Modelo Hola Mundo V2'
 
-    mensaje = fields.Char(string='Mensaje', default='¡Hola Mundo V2 desde Odoo!')
+    mensaje = fields.Char(string='Mensaje', default='¡Hola Mundo V2, soy Marcos!')

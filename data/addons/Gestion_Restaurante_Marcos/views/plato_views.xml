@@ -1,0 +1,36 @@
+<odoo>
+    <!-- LISTA -->
+    <record id="view_plato_tree" model="ir.ui.view">
+        <field name="name">gestion.plato.tree</field>
+        <field name="model">gestion_restaurante_marcos.plato</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre"/>
+                <field name="categoria"/>
+                <field name="precio"/>
+                <field name="disponible"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- FORMULARIO -->
+    <record id="view_plato_form" model="ir.ui.view">
+        <field name="name">gestion.plato.form</field>
+        <field name="model">gestion_restaurante_marcos.plato</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="categoria"/>
+                        <field name="precio"/>
+                        <field name="disponible"/>
+                        <field name="tiempo_preparacion"/>
+                        <field name="menu"/>
+                        <field name="rel_ingredientes" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

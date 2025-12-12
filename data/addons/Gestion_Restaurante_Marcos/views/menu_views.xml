@@ -1,0 +1,43 @@
+<odoo>
+    <record id="view_menu_tree" model="ir.ui.view">
+        <field name="name">gestion.menu.tree</field>
+        <field name="model">gestion_restaurante_marcos.menu</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_fin"/>
+                <field name="activo"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_menu_form" model="ir.ui.view">
+        <field name="name">gestion.menu.form</field>
+        <field name="model">gestion_restaurante_marcos.menu</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="descripcion"/>
+                        <field name="fecha_inicio"/>
+                        <field name="fecha_fin"/>
+                        <field name="activo"/>
+                    </group>
+
+                    <group string="Platos del menú">
+                        <field name="platos">
+                            <tree editable="bottom">
+                                <field name="nombre"/>
+                                <field name="precio"/>
+                                <field name="categoria"/>
+                            </tree>
+                        </field>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

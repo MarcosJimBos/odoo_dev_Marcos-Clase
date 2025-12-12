@@ -1,0 +1,32 @@
+<odoo>
+    <menuitem id="menu_gestion_restaurante_root" name="Gestión Restaurante"/>
+
+    <menuitem id="menu_platos" parent="menu_gestion_restaurante_root"
+              name="Platos" action="action_platos"/>
+
+    <menuitem id="menu_menus" parent="menu_gestion_restaurante_root"
+              name="Menús" action="action_menus"/>
+
+    <menuitem id="menu_ing" parent="menu_gestion_restaurante_root"
+              name="Ingredientes" action="action_ingredientes"/>
+
+    <!-- ACCIONES -->
+    <record id="action_platos" model="ir.actions.act_window">
+        <field name="name">Platos</field>
+        <field name="res_model">gestion_restaurante_marcos.plato</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_menus" model="ir.actions.act_window">
+        <field name="name">Menús</field>
+        <field name="res_model">gestion_restaurante_marcos.menu</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_ingredientes" model="ir.actions.act_window">
+        <field name="name">Ingredientes</field>
+        <field name="res_model">gestion_restaurante_marcos.ingrediente</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
