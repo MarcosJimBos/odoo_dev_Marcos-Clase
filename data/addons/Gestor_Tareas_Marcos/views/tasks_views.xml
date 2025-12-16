@@ -1,0 +1,30 @@
+<odoo>
+
+    <!-- LISTA -->
+    <record id="view_task_list" model="ir.ui.view">
+        <field name="name">gestor.task.list</field>
+        <field name="model">gestor_tareas_marcos.task</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="nombre"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- FORMULARIO -->
+    <record id="view_task_form" model="ir.ui.view">
+        <field name="name">gestor.task.form</field>
+        <field name="model">gestor_tareas_marcos.task</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="descripcion"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

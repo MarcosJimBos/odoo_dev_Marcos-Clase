@@ -1,0 +1,19 @@
+<odoo>
+
+    <!-- ACCIÓN -->
+    <record id="action_tasks" model="ir.actions.act_window">
+        <field name="name">Tareas</field>
+        <field name="res_model">gestor_tareas_marcos.task</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- MENÚ -->
+    <menuitem id="menu_gestor_root"
+              name="Gestor de Tareas"/>
+
+    <menuitem id="menu_tasks"
+              parent="menu_gestor_root"
+              name="Tareas"
+              action="action_tasks"/>
+
+</odoo>
