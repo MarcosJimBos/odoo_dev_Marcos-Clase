@@ -1,5 +1,6 @@
 from odoo import models, fields
 
+
 class Task(models.Model):
     _name = 'gestor_tareas_marcos.task'
     _description = 'Tarea'
