@@ -1,12 +1,12 @@
 <odoo>
-    <record id="view_ing_tree" model="ir.ui.view">
-        <field name="name">gestion.ingrediente.tree</field>
+    <record id="view_ing_list" model="ir.ui.view">
+        <field name="name">gestion.ingrediente.list</field>
         <field name="model">gestion_restaurante_marcos.ingrediente</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="nombre"/>
                 <field name="es_alergeno"/>
-            </tree>
+            </list>
         </field>
     </record>
 

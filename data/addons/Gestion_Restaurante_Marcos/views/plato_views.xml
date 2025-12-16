@@ -1,17 +1,18 @@
 <odoo>
-    <!-- LISTA -->
-    <record id="view_plato_tree" model="ir.ui.view">
-        <field name="name">gestion.plato.tree</field>
-        <field name="model">gestion_restaurante_marcos.plato</field>
-        <field name="arch" type="xml">
-            <tree>
-                <field name="nombre"/>
-                <field name="categoria"/>
-                <field name="precio"/>
-                <field name="disponible"/>
-            </tree>
-        </field>
-    </record>
+   <!-- LISTA -->
+<record id="view_plato_list" model="ir.ui.view">
+    <field name="name">gestion.plato.list</field>
+    <field name="model">gestion_restaurante_marcos.plato</field>
+    <field name="arch" type="xml">
+        <list string="Platos">
+            <field name="nombre"/>
+            <field name="categoria"/>
+            <field name="precio"/>
+            <field name="disponible"/>
+        </list>
+    </field>
+</record>
+
 
     <!-- FORMULARIO -->
     <record id="view_plato_form" model="ir.ui.view">

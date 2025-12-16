@@ -1,14 +1,14 @@
 <odoo>
-    <record id="view_menu_tree" model="ir.ui.view">
-        <field name="name">gestion.menu.tree</field>
+    <record id="view_menu_list" model="ir.ui.view">
+        <field name="name">gestion.menu.list</field>
         <field name="model">gestion_restaurante_marcos.menu</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="nombre"/>
                 <field name="fecha_inicio"/>
                 <field name="fecha_fin"/>
                 <field name="activo"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -28,11 +28,11 @@
 
                     <group string="Platos del menú">
                         <field name="platos">
-                            <tree editable="bottom">
+                            <list editable="bottom">
                                 <field name="nombre"/>
                                 <field name="precio"/>
                                 <field name="categoria"/>
-                            </tree>
+                            </list>
                         </field>
                     </group>
 

@@ -19,7 +19,7 @@ Incluye:
         'security/ir.model.access.csv',
         'views/plato_views.xml',
         'views/menu_views.xml',
-        'views/ingrediente_views.xml',
-        'views/menu_items.xml',
+        'views/ingrediente_views.xml',      
+        'views/menu_items.xml',    
     ],
 }
