@@ -1,0 +1,44 @@
+<odoo>
+
+    <record id="view_sprint_list" model="ir.ui.view">
+        <field name="name">sprint.list</field>
+        <field name="model">gestor_tareas_marcos.sprint</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="nombre"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_fin"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_sprint_form" model="ir.ui.view">
+        <field name="name">sprint.form</field>
+        <field name="model">gestor_tareas_marcos.sprint</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="fecha_inicio"/>
+                        <field name="fecha_fin"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Tareas">
+                            <field name="tarea_ids">
+                                <list>
+                                    <field name="nombre"/>
+                                    <field name="fecha_inicio"/>
+                                    <field name="fecha_fin"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -8,6 +8,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/task_views.xml',
+        'views/sprint_views.xml',
         'views/menu_items.xml',
     ],
 }
