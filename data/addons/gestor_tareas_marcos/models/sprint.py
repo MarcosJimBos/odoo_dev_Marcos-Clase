@@ -20,7 +20,7 @@ class Sprint(models.Model):
     )
 
     tarea_ids = fields.One2many(
-        'gestor_tareas_marcos.task',
-        'sprint_id',
+        comodel_name='gestor_tareas_marcos.task',
+        inverse_name='sprint_id',
         string='Tareas'
     )

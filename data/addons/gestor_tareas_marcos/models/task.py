@@ -7,22 +7,37 @@ class Task(models.Model):
     _name = 'gestor_tareas_marcos.task'
     _description = 'Tarea'
 
-    nombre = fields.Char(string='Nombre', required=True)
-    descripcion = fields.Text(string='Descripción')
-    fecha_inicio = fields.Date(string='Fecha inicio')
-    fecha_fin = fields.Date(string='Fecha fin')
-    sprint = fields.Char(string='Sprint')
+    nombre = fields.Char(
+        string='Nombre',
+        required=True
+    )
+
+    descripcion = fields.Text(
+        string='Descripción'
+    )
+
+    fecha_inicio = fields.Date(
+        string='Fecha inicio'
+    )
+
+    fecha_fin = fields.Date(
+        string='Fecha fin'
+    )
+
+    sprint_id = fields.Many2one(
+        'gestor_tareas_marcos.sprint',
+        string='Sprint'
+    )
 
     def create(self, vals):
-        _logger.info("🟢 CREANDO TAREA: %s", vals.get('nombre'))
-        return super(Task, self).create(vals)
+        _logger.info("Creando tarea: %s", vals.get('nombre'))
+        return super().create(vals)
 
     def write(self, vals):
-        _logger.info("🟡 MODIFICANDO TAREA ID %s", self.id)
-        return super(Task, self).write(vals)
+        _logger.info("Modificando tarea: %s", self.nombre)
+        return super().write(vals)
 
     def unlink(self):
-        for task in self:
-            _logger.info("🔴 BORRANDO TAREA: %s", task.nombre)
-        return super(Task, self).unlink()
-º
+        for rec in self:
+            _logger.info("Eliminando tarea: %s", rec.nombre)
+        return super().unlink()
