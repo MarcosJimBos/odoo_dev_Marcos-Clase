@@ -13,6 +13,11 @@ class Task(models.Model):
     _description = 'Tarea'
     _order = 'fecha_inicio asc'
 
+    codigo = fields.Char(
+        string='Código',
+        required=True
+    )
+
     nombre = fields.Char(
         string='Nombre',
         required=True
@@ -37,6 +42,15 @@ class Task(models.Model):
         string='Sprint',
         ondelete='set null'
     )
+
+    proyecto_id = fields.Many2one(
+        'gestor_tareas_marcos.proyectos_marcos',
+        string='Proyecto',
+        related='sprint_id.proyecto_id',
+        store=True,
+        readonly=True
+    )
+
 
     historia_id = fields.Many2one(
         'gestor_tareas_marcos.historia_marcos',
@@ -73,12 +87,12 @@ class Task(models.Model):
     # ==================================================
     @api.model
     def create(self, vals):
-        _logger.info("📝 Creando tarea: %s", vals.get('nombre'))
+        _logger.info("📝 Creando tarea [%s]: %s", vals.get('codigo'), vals.get('nombre'))
         return super().create(vals)
 
     def unlink(self):
         for rec in self:
-            _logger.info("🗑️ Eliminando tarea: %s", rec.nombre)
+            _logger.info("🗑️ Eliminando tarea [%s]: %s", rec.codigo, rec.nombre)
         return super().unlink()
 
 

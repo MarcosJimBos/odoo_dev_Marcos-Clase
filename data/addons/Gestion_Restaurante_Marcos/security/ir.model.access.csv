@@ -1,6 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_plato,access_plato,model_gestion_restaurante_marcos_plato,base.group_user,1,1,1,1
-access_menu,access_menu,model_gestion_restaurante_marcos_menu,base.group_user,1,1,1,1
-access_ingrediente,access_ingrediente,model_gestion_restaurante_marcos_ingrediente,base.group_user,1,1,1,1
-access_categoria,access_categoria,model_gestion_restaurante_marcos_categoria,base.group_user,1,1,1,1
-access_chef,access_chef,model_gestion_restaurante_marcos_chef,base.group_user,1,1,1,1
+access_plato_user,access_plato_user,model_gestion_restaurante_marcos_plato,base.group_user,1,1,1,1
+access_categoria_user,access_categoria_user,model_gestion_restaurante_marcos_categoria,base.group_user,1,1,1,1
+access_menu_user,access_menu_user,model_gestion_restaurante_marcos_menu,base.group_user,1,1,1,1
+access_ingrediente_user,access_ingrediente_user,model_gestion_restaurante_marcos_ingrediente,base.group_user,1,1,1,1
+access_chef_user,access_chef_user,model_gestion_restaurante_marcos_chef,base.group_user,1,1,1,1

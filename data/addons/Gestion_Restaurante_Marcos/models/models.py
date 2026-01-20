@@ -8,6 +8,15 @@ from odoo.exceptions import ValidationError
 _logger = logging.getLogger(__name__)
 
 
+def _get_categoria_defecto(self):
+    return self.env.ref(
+        'gestion_restaurante_marcos.categoria_principal',
+        raise_if_not_found=False
+    )
+
+
+
+
 # =====================================
 # MODELO: PLATO
 # =====================================
@@ -16,11 +25,27 @@ class Plato(models.Model):
     _description = "Plato"
 
     nombre = fields.Char(string="Nombre", required=True)
-    precio = fields.Float(string="Precio (€)", required=True)
+
+    fecha_alta = fields.Date(
+        string="Fecha de alta",
+        default=lambda self: fields.Date.today()
+    )
+
+    precio = fields.Float(
+        string="Precio (€)",
+        required=True,
+        default=5.0
+    )
+
+    descuento = fields.Float(
+        string="Descuento (%)",
+        default=0.0
+    )
+
     tiempo_preparacion = fields.Integer(string="Tiempo de preparación (min)")
     disponible = fields.Boolean(string="Disponible", default=True)
 
-    # 🔑 NECESARIO para el One2many del menú
+    
     menu = fields.Many2one(
         "gestion_restaurante_marcos.menu",
         string="Menú"
@@ -29,7 +54,8 @@ class Plato(models.Model):
     categoria = fields.Many2one(
         "gestion_restaurante_marcos.categoria",
         string="Categoría",
-        required=True
+        required=True,
+        default=_get_categoria_defecto
     )
 
     chef = fields.Many2one(
@@ -69,6 +95,7 @@ class Plato(models.Model):
                 plato.chef_especializado = chef
             else:
                 plato.chef_especializado = False
+
 
     @api.depends("chef")
     def _compute_especialidad_chef(self):
