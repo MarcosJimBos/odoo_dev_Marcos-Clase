@@ -1,26 +1,38 @@
 <odoo>
+
+    <!-- ========================================================= -->
+    <!-- MENÚS -->
+    <!-- ========================================================= -->
+
+    <!-- LISTA DE MENÚS -->
     <record id="view_menu_list" model="ir.ui.view">
         <field name="name">gestion.menu.list</field>
         <field name="model">gestion_restaurante_marcos.menu</field>
         <field name="arch" type="xml">
-            <list>
+            <list string="Menús">
                 <field name="nombre"/>
                 <field name="fecha_inicio"/>
                 <field name="fecha_fin"/>
                 <field name="activo"/>
+                <field name="platos" widget="one2many_count" string="Nº Platos"/>
             </list>
         </field>
     </record>
 
+    <!-- FORMULARIO DE MENÚ -->
     <record id="view_menu_form" model="ir.ui.view">
         <field name="name">gestion.menu.form</field>
         <field name="model">gestion_restaurante_marcos.menu</field>
         <field name="arch" type="xml">
-            <form>
+            <form string="Menú">
                 <sheet>
+
                     <group>
                         <field name="nombre"/>
                         <field name="descripcion"/>
+                    </group>
+
+                    <group>
                         <field name="fecha_inicio"/>
                         <field name="fecha_fin"/>
                         <field name="activo"/>
@@ -30,8 +42,12 @@
                         <field name="platos">
                             <list editable="bottom">
                                 <field name="nombre"/>
-                                <field name="precio"/>
                                 <field name="categoria"/>
+                                <field name="precio"/>
+                                <field name="disponible"/>
+                                <field name="chef"/>
+                                <field name="chef_especializado"/>
+                                <field name="especialidad_chef"/>
                             </list>
                         </field>
                     </group>
@@ -40,4 +56,193 @@
             </form>
         </field>
     </record>
+
+
+    <!-- ========================================================= -->
+    <!-- PLATOS -->
+    <!-- ========================================================= -->
+
+    <!-- LISTA DE PLATOS -->
+    <record id="view_plato_list" model="ir.ui.view">
+        <field name="name">gestion.plato.list</field>
+        <field name="model">gestion_restaurante_marcos.plato</field>
+        <field name="arch" type="xml">
+            <list string="Platos">
+                <field name="nombre"/>
+                <field name="categoria"/>
+                <field name="precio"/>
+                <field name="disponible"/>
+                <field name="chef"/>
+                <field name="chef_especializado"/>
+                <field name="especialidad_chef"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- FORMULARIO DE PLATO -->
+    <record id="view_plato_form" model="ir.ui.view">
+        <field name="name">gestion.plato.form</field>
+        <field name="model">gestion_restaurante_marcos.plato</field>
+        <field name="arch" type="xml">
+            <form string="Plato">
+                <sheet>
+
+                    <group>
+                        <field name="nombre"/>
+                        <field name="precio"/>
+                        <field name="disponible"/>
+                    </group>
+
+                    <group>
+                        <field name="categoria"/>
+                        <field name="chef"/>
+                        <field name="chef_especializado" readonly="1"/>
+                        <field name="especialidad_chef" readonly="1"/>
+                    </group>
+
+                    <group string="Ingredientes">
+                        <field name="ingredientes_ids" widget="many2many_tags"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- ========================================================= -->
+    <!-- CATEGORÍAS -->
+    <!-- ========================================================= -->
+
+    <!-- LISTA DE CATEGORÍAS -->
+    <record id="view_categoria_list" model="ir.ui.view">
+        <field name="name">gestion.categoria.list</field>
+        <field name="model">gestion_restaurante_marcos.categoria</field>
+        <field name="arch" type="xml">
+            <list string="Categorías">
+                <field name="nombre"/>
+                <field name="descripcion"/>
+                <field name="platos" widget="one2many_count" string="Nº Platos"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- FORMULARIO DE CATEGORÍA -->
+    <record id="view_categoria_form" model="ir.ui.view">
+        <field name="name">gestion.categoria.form</field>
+        <field name="model">gestion_restaurante_marcos.categoria</field>
+        <field name="arch" type="xml">
+            <form string="Categoría">
+                <sheet>
+
+                    <group>
+                        <field name="nombre"/>
+                        <field name="descripcion"/>
+                    </group>
+
+                    <group string="Platos de esta categoría">
+                        <field name="platos">
+                            <list>
+                                <field name="nombre"/>
+                                <field name="precio"/>
+                                <field name="chef"/>
+                            </list>
+                        </field>
+                    </group>
+
+                    <group string="Ingredientes comunes">
+                        <field name="ingredientes_comunes" widget="many2many_tags"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- ========================================================= -->
+    <!-- CHEFS -->
+    <!-- ========================================================= -->
+
+    <!-- LISTA DE CHEFS -->
+    <record id="view_chef_list" model="ir.ui.view">
+        <field name="name">gestion.chef.list</field>
+        <field name="model">gestion_restaurante_marcos.chef</field>
+        <field name="arch" type="xml">
+            <list string="Chefs">
+                <field name="nombre"/>
+                <field name="especialidad"/>
+                <field name="platos_asignados" widget="one2many_count" string="Nº Platos"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- FORMULARIO DE CHEF -->
+    <record id="view_chef_form" model="ir.ui.view">
+        <field name="name">gestion.chef.form</field>
+        <field name="model">gestion_restaurante_marcos.chef</field>
+        <field name="arch" type="xml">
+            <form string="Chef">
+                <sheet>
+
+                    <group>
+                        <field name="nombre"/>
+                        <field name="especialidad"/>
+                    </group>
+
+                    <group string="Platos asignados">
+                        <field name="platos_asignados">
+                            <list>
+                                <field name="nombre"/>
+                                <field name="categoria"/>
+                                <field name="precio"/>
+                            </list>
+                        </field>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- ========================================================= -->
+    <!-- INGREDIENTES -->
+    <!-- ========================================================= -->
+
+    <!-- LISTA DE INGREDIENTES -->
+    <record id="view_ingrediente_list" model="ir.ui.view">
+        <field name="name">gestion.ingrediente.list</field>
+        <field name="model">gestion_restaurante_marcos.ingrediente</field>
+        <field name="arch" type="xml">
+            <list string="Ingredientes">
+                <field name="nombre"/>
+                <field name="es_alergeno"/>
+                <field name="descripcion"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- FORMULARIO DE INGREDIENTE -->
+    <record id="view_ingrediente_form" model="ir.ui.view">
+        <field name="name">gestion.ingrediente.form</field>
+        <field name="model">gestion_restaurante_marcos.ingrediente</field>
+        <field name="arch" type="xml">
+            <form string="Ingrediente">
+                <sheet>
+
+                    <group>
+                        <field name="nombre"/>
+                        <field name="es_alergeno"/>
+                    </group>
+
+                    <group>
+                        <field name="descripcion"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
 </odoo>

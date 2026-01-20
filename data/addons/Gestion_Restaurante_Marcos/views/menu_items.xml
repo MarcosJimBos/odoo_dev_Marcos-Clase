@@ -1,45 +1,84 @@
 <odoo>
 
-    <!-- ACCIONES -->
-    <record id="action_platos" model="ir.actions.act_window">
-        <field name="name">Platos</field>
-        <field name="res_model">gestion_restaurante_marcos.plato</field>
-        <field name="view_mode">list,form</field>
-    </record>
+    <!-- ========================================================= -->
+    <!-- MENÚ PRINCIPAL -->
+    <!-- ========================================================= -->
 
+    <menuitem id="menu_restaurante_root"
+              name="Gestión Restaurante"
+              sequence="1"/>
+
+    <!-- ========================================================= -->
+    <!-- ACCIONES -->
+    <!-- ========================================================= -->
+
+    <!-- Acción: Menús -->
     <record id="action_menus" model="ir.actions.act_window">
         <field name="name">Menús</field>
         <field name="res_model">gestion_restaurante_marcos.menu</field>
         <field name="view_mode">list,form</field>
     </record>
 
+    <!-- Acción: Platos -->
+    <record id="action_platos" model="ir.actions.act_window">
+        <field name="name">Platos</field>
+        <field name="res_model">gestion_restaurante_marcos.plato</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Acción: Ingredientes -->
     <record id="action_ingredientes" model="ir.actions.act_window">
         <field name="name">Ingredientes</field>
         <field name="res_model">gestion_restaurante_marcos.ingrediente</field>
         <field name="view_mode">list,form</field>
     </record>
 
-    <!-- MENÚS -->
-    <menuitem id="menu_gestion_restaurante_root"
-              name="Gestión Restaurante"/>
+    <!-- Acción: Categorías -->
+    <record id="action_categorias" model="ir.actions.act_window">
+        <field name="name">Categorías</field>
+        <field name="res_model">gestion_restaurante_marcos.categoria</field>
+        <field name="view_mode">list,form</field>
+    </record>
 
-    <menuitem id="menu_platos_menus"
-              name="Platos y Menús"
-              parent="menu_gestion_restaurante_root"/>
+    <!-- Acción: Chefs -->
+    <record id="action_chefs" model="ir.actions.act_window">
+        <field name="name">Chefs</field>
+        <field name="res_model">gestion_restaurante_marcos.chef</field>
+        <field name="view_mode">list,form</field>
+    </record>
 
-    <menuitem id="menu_platos"
-              parent="menu_platos_menus"
-              name="Platos"
-              action="action_platos"/>
+    <!-- ========================================================= -->
+    <!-- MENÚS LATERALES -->
+    <!-- ========================================================= -->
 
-    <menuitem id="menu_menus"
-              parent="menu_platos_menus"
+    <menuitem id="menu_restaurante_menus"
               name="Menús"
-              action="action_menus"/>
+              parent="menu_restaurante_root"
+              action="action_menus"
+              sequence="10"/>
 
-    <menuitem id="menu_ing"
-              parent="menu_platos_menus"
+    <menuitem id="menu_restaurante_platos"
+              name="Platos"
+              parent="menu_restaurante_root"
+              action="action_platos"
+              sequence="20"/>
+
+    <menuitem id="menu_restaurante_ingredientes"
               name="Ingredientes"
-              action="action_ingredientes"/>
+              parent="menu_restaurante_root"
+              action="action_ingredientes"
+              sequence="30"/>
+
+    <menuitem id="menu_restaurante_categorias"
+              name="Categorías"
+              parent="menu_restaurante_root"
+              action="action_categorias"
+              sequence="40"/>
+
+    <menuitem id="menu_restaurante_chefs"
+              name="Chefs"
+              parent="menu_restaurante_root"
+              action="action_chefs"
+              sequence="50"/>
 
 </odoo>

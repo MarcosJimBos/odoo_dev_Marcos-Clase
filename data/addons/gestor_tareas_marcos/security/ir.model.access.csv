@@ -1,2 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_task_user,access_task_user,model_gestor_tareas_marcos_task,,1,1,1,1
+access_proyecto_user,access_proyecto_user,model_gestor_tareas_marcos_proyectos_marcos,,1,1,1,1
+access_historia_user,access_historia_user,model_gestor_tareas_marcos_historia_marcos,,1,1,1,1
+access_tecnologias_user,access_tecnologias_user,model_gestor_tareas_marcos_tecnologias_marcos,,1,1,1,1
+access_sprint_user,access_sprint_user,model_gestor_tareas_marcos_sprint,,1,1,1,1

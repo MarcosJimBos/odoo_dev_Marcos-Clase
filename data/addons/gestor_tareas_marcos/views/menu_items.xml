@@ -1,20 +1,63 @@
 <odoo>
 
-    <!-- ACCIÓN -->
+    <!-- ============================= -->
+    <!-- ACCIONES -->
+    <!-- ============================= -->
+
+    <record id="action_proyectos" model="ir.actions.act_window">
+        <field name="name">Proyectos</field>
+        <field name="res_model">gestor_tareas_marcos.proyectos_marcos</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_historias" model="ir.actions.act_window">
+        <field name="name">Historias</field>
+        <field name="res_model">gestor_tareas_marcos.historia_marcos</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
     <record id="action_tasks" model="ir.actions.act_window">
         <field name="name">Tareas</field>
         <field name="res_model">gestor_tareas_marcos.task</field>
         <field name="view_mode">list,form</field>
     </record>
 
-    <!-- MENÚ RAÍZ -->
-    <menuitem id="menu_gestor_root"
-              name="Gestor de Tareas"/>
+    <record id="action_sprints" model="ir.actions.act_window">
+        <field name="name">Sprints</field>
+        <field name="res_model">gestor_tareas_marcos.sprint</field>
+        <field name="view_mode">list,form</field>
+    </record>
 
-    <!-- SUBMENÚ -->
+    <!-- ============================= -->
+    <!-- MENÚ -->
+    <!-- ============================= -->
+
+    <menuitem id="menu_gestor_root"
+              name="Gestor de Tareas"
+              sequence="1"/>
+
+    <menuitem id="menu_proyectos"
+              parent="menu_gestor_root"
+              name="Proyectos"
+              action="action_proyectos"
+              sequence="1"/>
+
+    <menuitem id="menu_historias"
+              parent="menu_gestor_root"
+              name="Historias"
+              action="action_historias"
+              sequence="2"/>
+
     <menuitem id="menu_tasks"
               parent="menu_gestor_root"
               name="Tareas"
-              action="action_tasks"/>
+              action="action_tasks"
+              sequence="3"/>
+
+    <menuitem id="menu_sprints"
+              parent="menu_gestor_root"
+              name="Sprints"
+              action="action_sprints"
+              sequence="4"/>
 
 </odoo>

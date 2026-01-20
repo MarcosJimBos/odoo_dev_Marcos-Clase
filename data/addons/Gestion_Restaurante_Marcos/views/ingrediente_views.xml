@@ -23,7 +23,7 @@
                     </group>
 
                     <group string="Platos que usan este ingrediente">
-                        <field name="platos" widget="many2many_tags"/>
+                        <field name="platos_ids" widget="many2many_tags"/>
                     </group>
 
                 </sheet>
@@ -31,3 +31,4 @@
         </field>
     </record>
 </odoo>
+
